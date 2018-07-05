@@ -1,15 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react'
+
 import './App.css'
 import Main from './Main'
 
 class App extends Component {
+  constructor() {
+    super()
+
+    this.state = {
+      user: {
+        uid: 'sdfs34843560',
+        displayName: 'Davey',
+        email: 'davey@singing.org',
+      },
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        <Main/>
+        <Main user={this.state.user} />
       </div>
-    );
+    )
   }
 }
 

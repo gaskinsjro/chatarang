@@ -33,12 +33,25 @@ class Chat extends Component {
     }
   }
 
+  addMessage = (body) => {
+    const messages = [...this.state.messages]
+    const user = this.props.user
+
+    messages.push({
+      id: `${user.uid}-${Date.now()}`,
+      user,
+      body,
+    })
+
+    this.setState({ messages })
+  }
+
   render() {
     return (
       <div className="Chat">
         <ChatHeader />
         <MessageList messages={this.state.messages} />
-        <MessageForm />
+        <MessageForm addMessage={this.addMessage} />
       </div>
     )
   }
